@@ -25,10 +25,10 @@ npm i -D @urpflanze/typedoc-docs
 add _generate-docs_ in your `package.json`
 
 ```json
-    "scripts": {
-        ...
-        "generate-docs": "node_modules/.bin/generate-docs"
-    },
+"scripts": {
+    ...
+    "generate-docs": "node_modules/.bin/generate-docs"
+}
 ```
 
 ## Testing
