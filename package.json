@@ -1,0 +1,36 @@
+{
+	"name": "@urpflanze/typedoc-docs",
+	"version": "0.0.1",
+	"description": "Generate docs site (or references) for typescript project",
+	"license": "GPL-3.0-or-later",
+	"author": {
+		"name": "Gennaro Bosone",
+		"email": "gennaro.bs@gmail.com",
+		"url": "https://urpflanze.org"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/urpflanze-org/typedoc-docs.git"
+	},
+	"homepage": "https://github.com/urpflanze-org/typedoc-docs",
+	"bugs": {
+		"url": "https://github.com/urpflanze-org/typedoc-docs/issues",
+		"email": "gennaro.bs@gmail.com"
+	},
+	"files": [
+		"bin",
+		"src",
+		"package.json",
+		"README.md",
+		"LICENSE"
+	],
+	"bin": {
+		"generate-docs": "./bin/generate-docs.js",
+		"generate-references": "./bin/generate-references.js"
+	},
+	"publishConfig": {},
+	"dependencies": {
+		"showdown": "^1.9.1",
+		"typedoc": "^0.20.28"
+	}
+}
