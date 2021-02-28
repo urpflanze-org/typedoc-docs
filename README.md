@@ -48,4 +48,4 @@ to
 <base href="/" />
 ```
 
-and run server in docs dir (for example: php -S localhost:8080)
+and run server in `docs` dir (for example: php -S localhost:8080)
