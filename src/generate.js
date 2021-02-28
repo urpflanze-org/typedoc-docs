@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const copyStub = require('./stub')
 const typedocToReferences = require('./typedocToReferences')
+const { markdownToHTML } = require('./utilities')
 
 const stubsDirectory = path.resolve(__dirname, '../stubs')
 const outputDirectory = path.resolve('./docs')
