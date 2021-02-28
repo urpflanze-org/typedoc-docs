@@ -12,7 +12,7 @@ typedoc. --json <path/to/out-file.json>
 
 In order to have a more readable result and therefore easier to manage.
 
-The style is still tied to urpflances, but it could become an isolated package.
+The style is still tied to urpflanze, but it could become an isolated package.
 
 ## Installation
 
