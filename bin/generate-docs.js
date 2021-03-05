@@ -8,6 +8,8 @@ const { generateDocs } = require('../src/generate')
 const tmpFilename = '__urpflanze__docs__tmp.json'
 const tmpFilenameAbs = path.resolve('./__urpflanze__docs__tmp.json')
 
+const bNoBase = process.argv.slice(2).includes('--nobase')
+
 exec(`npx typedoc . --json ./${tmpFilename}`, (error, stdout, stderr) => {
 	if (error) {
 		console.log(`error: ${error.message}`)
@@ -19,7 +21,7 @@ exec(`npx typedoc . --json ./${tmpFilename}`, (error, stdout, stderr) => {
 	}
 
 	const typedocData = JSON.parse(fs.readFileSync(tmpFilenameAbs, 'utf-8'))
-	generateDocs(typedocData)
+	generateDocs(typedocData, bNoBase)
 
 	fs.unlinkSync(tmpFilenameAbs)
 

@@ -12,7 +12,7 @@ async function generateReferences(typedocJSON, outFilePath) {
 	fs.writeFileSync(path.join(outFilePath), JSON.stringify(references, null, '\t'))
 }
 
-async function generateDocs(typedocJSON) {
+async function generateDocs(typedocJSON, bNoBase) {
 	const package = JSON.parse(fs.readFileSync(path.resolve('./package.json'), 'utf8'))
 
 	await copyStub(
@@ -23,7 +23,7 @@ async function generateDocs(typedocJSON) {
 			'/{VERSION}/g': package.version,
 			'/{DESCRIPTION}/g': package.description,
 			'/{URL}/g': package.homepage,
-			'/{BASE_URL}/g': package.homepage.replace('https://urpflanze.org', ''),
+			'/{BASE_URL}/g': bNoBase ? '/' : package.homepage.replace('https://urpflanze.org', ''),
 			'/{GITHUB_URL}/g': package.repository.url,
 		},
 		{
