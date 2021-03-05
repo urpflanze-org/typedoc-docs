@@ -24,4 +24,6 @@ exec(`${typedoc} . --tsconfig ${packageTsConfigPath} --json ${tmpFilename}`, (er
 	generateDocs(typedocData)
 
 	fs.unlinkSync(tmpFilename)
+
+	console.log('docs generated.')
 })
