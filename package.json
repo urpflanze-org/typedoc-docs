@@ -1,6 +1,6 @@
 {
 	"name": "@urpflanze/typedoc-docs",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"description": "Generate docs site (or references) for typescript project",
 	"license": "GPL-3.0-or-later",
 	"author": {
