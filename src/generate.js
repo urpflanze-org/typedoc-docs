@@ -36,7 +36,10 @@ async function generateDocs(typedocJSON) {
 	generateReferences(typedocJSON, path.join(outputDirectory, 'assets/references.json'))
 
 	// Convert README.md
-	markdownToHTML(path.resolve('./README.md'), path.join(outputDirectory, 'pages/readme.html'))
+	markdownToHTML(path.resolve('./README.md'), path.join(outputDirectory, 'pages/readme.html'), html => {
+		html = html.replace(/\<pre\>/gim, '<pre class="prettyprint">')
+		return html
+	})
 	// Convert CHANGELOG.md
 	markdownToHTML(path.resolve('./CHANGELOG.md'), path.join(outputDirectory, 'pages/changelog.html'))
 }

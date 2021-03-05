@@ -35,14 +35,14 @@ function isExists(file) {
 	}
 }
 
-function markdownToHTML(inputPath, outputPath) {
+function markdownToHTML(inputPath, outputPath, callbackHTML) {
 	if (fs.existsSync(inputPath)) {
 		const data = fs.readFileSync(inputPath, 'utf8')
 		const converter = new showdown.Converter()
 		const html = converter.makeHtml(data)
 
 		checkDirectory(outputPath)
-		fs.writeFileSync(outputPath, html)
+		fs.writeFileSync(outputPath, callbackHTML ? callbackHTML(html) : html)
 	}
 }
 
