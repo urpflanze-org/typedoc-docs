@@ -247,6 +247,7 @@ function parseClass(item) {
 }
 
 function parseProperty(property) {
+	if (!property.type) return
 	const type = property.type
 
 	if (type.types) {
