@@ -10,7 +10,8 @@ const tmpFilenameAbs = path.resolve('./', tmpFilename)
 
 const bNoBase = process.argv.slice(2).includes('--nobase')
 
-exec(`npx typedoc . --json ./${tmpFilename}`, (error, stdout, stderr) => {
+const typedoc = path.resolve(__dirname, '../node_modules/.bin/typedoc')
+exec(`${typedoc} . --tsconfig ${packageTsConfigPath} --json ${tmpFilename}`, (error, stdout, stderr) => {
 	if (error) {
 		console.log(`error: ${error.message}`)
 		return

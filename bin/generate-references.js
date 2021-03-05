@@ -8,7 +8,8 @@ const { generateDocs, generateReferences } = require('../src/generate')
 const tmpFilename = '__urpflanze__docs__tmp.json'
 const tmpFilenameAbs = path.resolve('./', tmpFilename)
 
-exec(`npx typedoc . --json ./${tmpFilename}`, (error, stdout, stderr) => {
+const typedoc = path.resolve(__dirname, '../node_modules/.bin/typedoc')
+exec(`${typedoc} . --tsconfig ${packageTsConfigPath} --json ${tmpFilename}`, (error, stdout, stderr) => {
 	if (error) {
 		console.log(`error: ${error.message}`)
 		return
