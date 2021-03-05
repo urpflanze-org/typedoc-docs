@@ -5,10 +5,11 @@ const { exec } = require('child_process')
 const fs = require('fs')
 const { generateDocs } = require('../src/generate')
 
-const packageTsConfigPath = path.resolve('./tsconfig.json')
-const tmpFilename = path.resolve('./__urpflanze__docs__tmp.json')
+const root = process.cwd()
+const packageTsConfigPath = path.resolve(root, 'tsconfig.json')
+const tmpFilename = path.resolve(root, '__urpflanze__docs__tmp.json')
+const typedoc = path.resolve(root, 'node_modules/.bin/typedoc')
 
-const typedoc = path.resolve(__dirname, '../node_modules/.bin/typedoc')
 exec(`${typedoc} . --tsconfig ${packageTsConfigPath} --json ${tmpFilename}`, (error, stdout, stderr) => {
 	if (error) {
 		console.log(`error: ${error.message}`)
