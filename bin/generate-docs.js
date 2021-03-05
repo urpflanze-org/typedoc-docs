@@ -5,12 +5,10 @@ const { exec } = require('child_process')
 const fs = require('fs')
 const { generateDocs } = require('../src/generate')
 
-const root = process.cwd()
-const packageTsConfigPath = path.resolve(root, 'tsconfig.json')
-const tmpFilename = path.resolve(root, '__urpflanze__docs__tmp.json')
-const typedoc = path.resolve(root, 'node_modules/.bin/typedoc')
+const tmpFilename = '__urpflanze__docs__tmp.json'
+const tmpFilenameAbs = path.resolve('./__urpflanze__docs__tmp.json')
 
-exec(`${typedoc} . --tsconfig ${packageTsConfigPath} --json ${tmpFilename}`, (error, stdout, stderr) => {
+exec(`npx typedoc . --json ./${tmpFilename}`, (error, stdout, stderr) => {
 	if (error) {
 		console.log(`error: ${error.message}`)
 		return
@@ -20,10 +18,10 @@ exec(`${typedoc} . --tsconfig ${packageTsConfigPath} --json ${tmpFilename}`, (er
 		return
 	}
 
-	const typedocData = JSON.parse(fs.readFileSync(tmpFilename, 'utf-8'))
+	const typedocData = JSON.parse(fs.readFileSync(tmpFilenameAbs, 'utf-8'))
 	generateDocs(typedocData)
 
-	fs.unlinkSync(tmpFilename)
+	fs.unlinkSync(tmpFilenameAbs)
 
 	console.log('docs generated.')
 })
