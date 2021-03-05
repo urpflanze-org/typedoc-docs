@@ -6,7 +6,7 @@ const fs = require('fs')
 const { generateDocs } = require('../src/generate')
 
 const tmpFilename = '__urpflanze__docs__tmp.json'
-const tmpFilenameAbs = path.resolve('./__urpflanze__docs__tmp.json')
+const tmpFilenameAbs = path.resolve('./', tmpFilename)
 
 const bNoBase = process.argv.slice(2).includes('--nobase')
 

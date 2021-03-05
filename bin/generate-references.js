@@ -6,7 +6,7 @@ const fs = require('fs')
 const { generateDocs, generateReferences } = require('../src/generate')
 
 const tmpFilename = '__urpflanze__docs__tmp.json'
-const tmpFilenameAbs = path.resolve('./__urpflanze__docs__tmp.json')
+const tmpFilenameAbs = path.resolve('./', tmpFilename)
 
 exec(`npx typedoc . --json ./${tmpFilename}`, (error, stdout, stderr) => {
 	if (error) {
