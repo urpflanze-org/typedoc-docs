@@ -26,8 +26,7 @@ add _generate-docs_ in your `package.json`
 
 ```json
 "scripts": {
-    ...
-    "generate-docs": "node_modules/.bin/generate-docs"
+    "generate-docs": "npx generate-docs"
 }
 ```
 
