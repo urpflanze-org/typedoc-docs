@@ -8,7 +8,7 @@ const { generateReferences } = require('../src/generate')
 const root = process.cwd()
 const packageTsConfigPath = path.resolve(root, 'tsconfig.json')
 const tmpFilename = path.resolve(root, '__urpflanze__docs__tmp.json')
-const typedoc = path.resolve(root, 'node_modules/.bin/typedoc')
+const typedoc = path.resolve(root, 'node_modules/@urpflanze/typedoc-docs/node_modules/.bin/typedoc')
 
 exec(`${typedoc} . --tsconfig ${packageTsConfigPath} --json ${tmpFilename}`, (error, stdout, stderr) => {
 	if (error) {
@@ -20,8 +20,8 @@ exec(`${typedoc} . --tsconfig ${packageTsConfigPath} --json ${tmpFilename}`, (er
 		return
 	}
 
-	const typedocData = JSON.parse(fs.readFileSync(tmpFilenameAbs, 'utf-8'))
+	const typedocData = JSON.parse(fs.readFileSync(tmpFilename, 'utf-8'))
 	generateReferences(typedocData, path.resolve('./references.json'))
 
-	fs.unlinkSync(tmpFilenameAbs)
+	fs.unlinkSync(tmpFilename)
 })
