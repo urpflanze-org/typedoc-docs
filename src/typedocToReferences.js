@@ -155,7 +155,7 @@ function parseType(item) {
 		description: parseDescription(item),
 		examples: findExamples(item),
 		parameter: parseProperty(item),
-		typeParameters: item.typeParameter,
+		typeParameters: item.typeParameter || item.elementType,
 	}
 
 	return result
