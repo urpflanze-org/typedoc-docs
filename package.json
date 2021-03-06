@@ -32,6 +32,6 @@
 	"publishConfig": {},
 	"dependencies": {
 		"showdown": "^1.9.1",
-		"typedoc": "0.19.2"
+		"typedoc": "^0.20.29"
 	}
 }
