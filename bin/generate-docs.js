@@ -10,7 +10,7 @@ const bNoBase = process.argv.slice(2).includes('--nobase')
 const root = process.cwd()
 const packageTsConfigPath = path.resolve(root, 'tsconfig.json')
 const tmpFilename = path.resolve(root, '__urpflanze__docs__tmp.json')
-const typedoc = path.resolve(root, 'node_modules/@urpflanze/typedoc-docs/node_modules/.bin/typedoc')
+const typedoc = path.resolve(root, 'node_modules/.bin/typedoc')
 
 exec(`${typedoc} . --tsconfig ${packageTsConfigPath} --json ${tmpFilename}`, (error, stdout, stderr) => {
 	if (error) {
