@@ -5,12 +5,12 @@ const { exec } = require('child_process')
 const fs = require('fs')
 const { generateDocs } = require('../src/generate')
 
-const tmpFilename = './__urpflanze__docs__tmp.json'
-const tmpFilenameAbs = path.resolve('./__urpflanze__docs__tmp.json')
+const tmpFilename = '__urpflanze__docs__tmp.json'
+const tmpFilenameAbs = path.resolve(tmpFilename)
 
 const bNoBase = process.argv.slice(2).includes('--nobase')
 
-exec(`npx typedoc . --tsconfig ./tsconfig.json --json ${tmpFilename}`, (error, stdout, stderr) => {
+exec(`npx typedoc . --json ${tmpFilename}`, (error, stdout, stderr) => {
 	if (error) {
 		console.log(`error: ${error.message}`)
 		return
