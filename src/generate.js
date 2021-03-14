@@ -25,6 +25,7 @@ async function generateDocs(typedocJSON, bNoBase) {
 			'/{URL}/g': package.homepage,
 			'/{BASE_URL}/g': bNoBase ? '/' : package.homepage.replace('https://urpflanze.org', ''),
 			'/{GITHUB_URL}/g': package.repository.url,
+			'/{GOOGLE_ANALYTICS_ID}/g': package.googleAnalyticsID || '',
 		},
 		{
 			findAndReplaceFileName: true,
