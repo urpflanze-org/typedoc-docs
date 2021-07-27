@@ -38,7 +38,9 @@ function isExists(file) {
 function markdownToHTML(inputPath, outputPath, callbackHTML) {
 	if (fs.existsSync(inputPath)) {
 		const data = fs.readFileSync(inputPath, 'utf8')
-		const converter = new showdown.Converter()
+		const converter = new showdown.Converter({
+			tables: true,
+		})
 		const html = converter.makeHtml(data)
 
 		checkDirectory(outputPath)
