@@ -89,7 +89,8 @@ function loadReference(refName) {
 				break
 		}
 
-		const sourcelink = `{GITHUB_URL}/blob/master/${ref.source.fileName}#L${ref.source.line}`
+		const url = '{GITHUB_URL}'.replace('.git', '')
+		const sourcelink = `${url}/blob/master/src/${ref.source.fileName.replace('src/', '')}#L${ref.source.line}`
 		content.innerHTML += `<h2>Source</h2><div class="reference__source_url"><a target="_blank" href="${sourcelink}">${ref.source.fileName}</a></div>`
 	}
 }
